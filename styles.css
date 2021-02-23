@@ -8,7 +8,7 @@
 }
 
 .calc {
-    width: 800px;
+    max-width: 800px;
     height: 534px;
     background-image:url(resources/100022828067b2.jpg); 
 }
