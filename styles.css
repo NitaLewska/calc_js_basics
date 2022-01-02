@@ -4,19 +4,27 @@
 
 @font-face {
     font-family: 'Digital7Mono';
-    src: url(resources/Digital7Italic-RBM3.ttf);
+    src: url(resources/Digital7Monoitalic-8xKz.ttf);
+}
+
+main {
+    width: 100%;
+    height: 98vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .calc {
-    max-width: 800px;
+    margin: 20px auto;
+    width: 800px;
     height: 534px;
-    background-image:url(resources/100022828067b2.jpg); 
+    background-image:url(resources/calculator_picture.jpg); 
 }
 
 .calc_body {
     margin-left: 50px;
     display: grid;
-
     width: 270px;
     height: 480px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -28,6 +36,7 @@
     height: 80px;
     margin-top: 40px;
 }
+
 .display {
     width: 270px;
     height: 85px;
