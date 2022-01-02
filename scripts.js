@@ -41,8 +41,16 @@ function operatorInput(e) {
 function equals() {
     secondNumber = display.innerHTML;
     equation = equation + secondNumber;
-    console.log(equation, secondNumber);
     result = eval(equation);
+    let nextSymbol=result.toString().split('')[7]
+    if (result.toString().length>7) {
+        if (nextSymbol<4) {
+            result = parseFloat(result.toString().slice(0,7));
+        } else {
+            lastSymbol=parseInt(result.toString().split('')[6])+1;
+            result = result.toString().slice(0,6) + lastSymbol;
+        }            
+    }
     display.innerHTML = result;
     firstNumber=0;
     secondNumber=0;
