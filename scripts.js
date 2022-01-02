@@ -10,9 +10,20 @@ document.querySelectorAll(".number").forEach(function(button) {
     button.addEventListener('click', numberInput);
 }) 
 
+document.querySelectorAll(".operator").forEach(function(button) {
+    button.addEventListener('click', operatorInput);
+}) 
+
+document.querySelector("#equals").addEventListener('click', equals);
+
+document.querySelector("#cce").addEventListener('click', start);
+
+document.querySelector("#off").addEventListener('click', turnOff);
+
 function numberInput(e) {
     if (display.innerHTML == result){
         display.innerHTML = e.target.innerHTML;
+        result = 0;
     } else if (display.innerHTML === '0'|| display.innerHTML === firstNumber) {
         display.innerHTML = e.target.innerHTML;
     } else {
@@ -21,18 +32,13 @@ function numberInput(e) {
         }
 }
 
-document.querySelectorAll(".operator").forEach(function(button) {
-    button.addEventListener('click', operatorInput);
-}) 
-
 function operatorInput(e) {
     firstNumber = display.innerHTML;
     equation = display.innerHTML + e.target.innerHTML;
     console.log(equation, firstNumber);
-    
 }
-document.querySelector("#equals").addEventListener('click', equals);
-function equals(e) {
+
+function equals() {
     secondNumber = display.innerHTML;
     equation = equation + secondNumber;
     console.log(equation, secondNumber);
@@ -43,11 +49,24 @@ function equals(e) {
     equation=0;
     return result;
 }
-    
 
-document.querySelector("#cce").addEventListener('click', clear);
-function clear() {
+function start() {
     display.innerHTML = "0";
     equation = "0";
     firstNumber = "0";
+    document.querySelectorAll("button").forEach( a => {
+        a.removeAttribute('disabled');
+    });
+}
+
+function turnOff() {
+    display.innerHTML = '';
+    equation = 0;
+    firstNumber = 0;
+    secondNumber = 0;
+    result = 0;
+    document.querySelectorAll("button").forEach( a => {
+        a.setAttribute('disabled', true);
+    });
+    document.querySelector("#cce").removeAttribute('disabled');
 }
