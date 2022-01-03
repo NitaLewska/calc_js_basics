@@ -105,7 +105,7 @@ function roundNum() {
                 seventhNumber=parseInt(result.toString().split('')[6])+1;
                 result = result.toString().slice(0,6) + seventhNumber;
             }else{
-                result = result.toString().slice(0,6)
+                result = result.toString().slice(0,7)
             }               
         }  
     }
