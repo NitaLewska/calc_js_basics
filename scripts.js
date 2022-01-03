@@ -8,7 +8,7 @@ let sixthNumber = 0;
 let seventhNumber = 0;
 let eighthNumber = 0;
 let ninthNumber = 0;
-let result = 0;
+let result = "0";
 
 document.querySelectorAll(".number").forEach(function(button) {
     button.addEventListener('click', numberInput);
@@ -35,7 +35,7 @@ function numberInput(e) {
     } else if (display.innerHTML === '0'|| display.innerHTML === firstNumber) {
         display.innerHTML = e.target.innerHTML;
     } else {
-        if (display.innerHTML.length<7) {
+        if (display.innerHTML.length<6) {
             display.innerHTML += e.target.innerHTML;}
         }
 }
@@ -49,8 +49,9 @@ function operatorInput(e) {
 function equals() {
     secondNumber = display.innerHTML;
     equation = equation + secondNumber;
-    result = eval(equation);
+    result = eval(equation).toString();
     equation=0;
+    console.log(equation, secondNumber, result);
     roundNum();
     display.innerHTML = result;
     return result;
