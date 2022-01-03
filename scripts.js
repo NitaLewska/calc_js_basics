@@ -20,6 +20,8 @@ document.querySelector("#cce").addEventListener('click', start);
 
 document.querySelector("#off").addEventListener('click', turnOff);
 
+document.querySelector("#sq").addEventListener('click', sqRoot);
+
 function numberInput(e) {
     if (display.innerHTML == result){
         display.innerHTML = e.target.innerHTML;
@@ -43,6 +45,7 @@ function equals() {
     equation = equation + secondNumber;
     result = eval(equation);
     let nextSymbol=result.toString().split('')[7]
+    let lastSymbol=result.toString().split('')[6]
     if (result.toString().length>7) {
         if (nextSymbol<4) {
             result = parseFloat(result.toString().slice(0,7));
@@ -77,4 +80,9 @@ function turnOff() {
         a.setAttribute('disabled', true);
     });
     document.querySelector("#cce").removeAttribute('disabled');
+}
+
+function sqRoot() {
+    result = Math.sqrt(display.innerHTML).toString().slice(0,7);
+    display.innerHTML = result;
 }
