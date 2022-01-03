@@ -26,6 +26,8 @@ document.querySelector("#off").addEventListener('click', turnOff);
 
 document.querySelector("#sq").addEventListener('click', sqRoot);
 
+document.querySelector("#dot").addEventListener('click', dot);
+
 function numberInput(e) {
     if (display.innerHTML == result){
         display.innerHTML = e.target.innerHTML;
@@ -110,4 +112,14 @@ function roundNum() {
         }  
     }
     return result;
+}
+
+function dot() {
+    if (display.innerHTML == result || display.innerHTML === '0'){
+        display.innerHTML = "0.";
+        result = "0";
+    } else {
+        if (display.innerHTML.length<6) {
+            display.innerHTML += ".";}
+    }
 }
