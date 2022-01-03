@@ -4,6 +4,10 @@ display.innerHTML = "0";
 let equation = 0;
 let firstNumber = 0;
 let secondNumber = 0;
+let sixthNumber = 0;
+let seventhNumber = 0;
+let eighthNumber = 0;
+let ninthNumber = 0;
 let result = 0;
 
 document.querySelectorAll(".number").forEach(function(button) {
@@ -44,20 +48,9 @@ function equals() {
     secondNumber = display.innerHTML;
     equation = equation + secondNumber;
     result = eval(equation);
-    let nextSymbol=result.toString().split('')[7]
-    let lastSymbol=result.toString().split('')[6]
-    if (result.toString().length>7) {
-        if (nextSymbol<4) {
-            result = parseFloat(result.toString().slice(0,7));
-        } else {
-            lastSymbol=parseInt(result.toString().split('')[6])+1;
-            result = result.toString().slice(0,6) + lastSymbol;
-        }            
-    }
-    display.innerHTML = result;
-    firstNumber=0;
-    secondNumber=0;
     equation=0;
+    roundNum();
+    display.innerHTML = result;
     return result;
 }
 
@@ -83,6 +76,38 @@ function turnOff() {
 }
 
 function sqRoot() {
-    result = Math.sqrt(display.innerHTML).toString().slice(0,7);
+    result = Math.sqrt(display.innerHTML).toString();
+    roundNum();
     display.innerHTML = result;
+}
+
+function roundNum() {
+    sixthNumber = result.toString().split('')[5];
+    seventhNumber = result.toString().split('')[6];
+    eighthNumber = result.toString().split('')[7];
+    ninthNumber = result.toString().split('')[8];
+    
+    if (result.toString().length>7) {
+        if (seventhNumber === ".") {
+            if (eighthNumber > 4) {
+                result = parseInt(result.toString().slice(0,6)) + 1;
+            }else{
+                result = result.toString().slice(0,6)
+            }
+        }else if (eighthNumber === ".") {
+            if (ninthNumber > 4) {
+                result = parseInt(result.toString().slice(0,7)) + 1;
+            }else{
+                result = result.toString().slice(0,7)
+            }            
+        }else{
+            if (eighthNumber > 4 && eighthNumber < 9) {
+                seventhNumber=parseInt(result.toString().split('')[6])+1;
+                result = result.toString().slice(0,6) + seventhNumber;
+            }else{
+                result = result.toString().slice(0,6)
+            }               
+        }  
+    }
+    return result;
 }
