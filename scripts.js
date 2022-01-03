@@ -103,7 +103,7 @@ function roundNum() {
                 result = result.toString().slice(0,7)
             }            
         }else{
-            if (eighthNumber > 4 && eighthNumber < 9) {
+            if (eighthNumber > 4 && seventhNumber < 9) {
                 seventhNumber=parseInt(result.toString().split('')[6])+1;
                 result = result.toString().slice(0,6) + seventhNumber;
             }else{
