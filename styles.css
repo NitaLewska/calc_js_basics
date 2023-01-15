@@ -60,6 +60,14 @@ button {
     box-shadow:         0px 5px 12px 0px rgba(50, 50, 50, 1);
 }
 
+.disabled {
+    color: grey;
+}
+
+.disabled:hover{
+    background: rgb(37, 37, 37);
+}
+
 button:hover {
     background: rgb(26, 25, 25);
 }
